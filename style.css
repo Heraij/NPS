@@ -1,3 +1,101 @@
+.hero, .nav {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+
+  font-size: 64px;
+
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 10px rgba(255,120,80,0.3),
+    0 0 25px rgba(255,120,80,0.15);
+
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+.hero h1 {
+
+  font-size: 64px;
+
+  letter-spacing: 3px;
+
+  text-shadow:
+    0 0 10px rgba(255,120,80,0.3),
+    0 0 25px rgba(255,120,80,0.15);
+
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+  0%,100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+a, button {
+  transition: 0.2s ease;
+}
+
+.nav a {
+
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  position: relative;
+}
+
+.nav a:hover {
+
+  color: orange;
+
+  transform: scale(1.08);
+
+  text-shadow: 0 0 10px rgba(255,140,0,0.6);
+}
+
+/* glow pulse */
+.nav a::after {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 8px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,140,0,0.25),
+    transparent
+  );
+
+  opacity: 0;
+
+  transition: 0.25s;
+}
+
+.nav a:hover::after {
+  opacity: 1;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
