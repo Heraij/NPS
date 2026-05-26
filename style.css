@@ -251,3 +251,65 @@ button {
     font-size: 42px;
   }
 }
+.nav a {
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.nav a:hover {
+
+  background:
+    rgba(255,140,0,0.18);
+
+  color: orange;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 0 18px rgba(255,140,0,0.18);
+}
+
+/* soft glow layer */
+.nav a::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,180,120,0.2),
+      transparent
+    );
+
+  opacity: 0;
+
+  transition: 0.25s;
+
+  pointer-events: none;
+}
+
+.nav a:hover::after {
+  opacity: 1;
+}
+body {
+
+  background:
+    radial-gradient(
+      circle at top,
+      #1a1010,
+      #050505 60%
+    );
+}
