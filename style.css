@@ -9,7 +9,7 @@
 }
 
 /* =========================
-   BODY
+   BASE
 ========================= */
 
 body {
@@ -24,6 +24,31 @@ body {
   overflow-x: hidden;
 
   min-height: 100vh;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,140,80,0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,140,80,0.7);
 }
 
 /* =========================
@@ -59,11 +84,11 @@ body {
 
   border-radius: 50%;
 
+  filter: blur(110px);
+
   pointer-events: none;
 
   z-index: 0;
-
-  filter: blur(110px);
 }
 
 .bg-fog {
@@ -126,7 +151,7 @@ body {
 }
 
 .logo span {
-  color: orange;
+  color: #ff8a4c;
 }
 
 /* =========================
@@ -136,9 +161,7 @@ body {
 .nav {
 
   display: flex;
-
   gap: 12px;
-
   flex-wrap: wrap;
 }
 
@@ -164,13 +187,13 @@ body {
   background:
     rgba(255,140,80,0.18);
 
-  color: orange;
+  color: #ff8a4c;
 
   transform: translateY(-2px);
 }
 
 /* =========================
-   PAGE WRAPPER
+   PAGE LAYOUT
 ========================= */
 
 .page,
@@ -192,26 +215,29 @@ body {
 .title,
 .hero h1 {
 
-  color: var(--sunset);
+  font-size: clamp(48px, 8vw, 82px);
+
+  letter-spacing: 3px;
+
+  margin-bottom: 12px;
+
+  color: #ff8a4c;
 
   text-shadow:
-    0 0 18px var(--sunset-soft),
-    0 0 40px rgba(255,120,80,0.15);
+    0 0 18px rgba(255,120,80,0.25);
 }
 
 /* =========================
-   GRID SYSTEM
+   HOME GRID (FIXED STACK)
 ========================= */
 
-.grid,
 .home-grid {
 
   display: flex;
 
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
 
-  flex-wrap: wrap;
+  align-items: center;
 
   gap: 20px;
 
@@ -221,7 +247,7 @@ body {
 }
 
 /* =========================
-   CARDS / PANELS
+   CARDS
 ========================= */
 
 .card,
@@ -256,6 +282,102 @@ body {
 
   box-shadow:
     0 0 22px rgba(255,140,80,0.12);
+}
+
+/* =========================
+   WEEKLY + WINNERS LISTS
+========================= */
+
+.task-list,
+.winner-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin-top: 12px;
+
+  text-align: left;
+}
+
+.task-list li,
+.winner-list li {
+
+  padding: 6px 0;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+  font-size: 14px;
+}
+
+/* =========================
+   RANK COLORS
+========================= */
+
+.rank1 { color: #ffd36a; }
+.rank2 { color: #bcd0ff; }
+.rank3 { color: #ffb38a; }
+
+/* =========================
+   BEST LEVELS CAROUSEL
+========================= */
+
+.carousel-panel {
+
+  width: 90%;
+
+  max-width: 900px;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+}
+
+.carousel-track {
+
+  display: flex;
+
+  gap: 15px;
+
+  overflow-x: auto;
+
+  padding: 10px;
+
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-card {
+
+  min-width: 220px;
+
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  scroll-snap-align: center;
+
+  transition: 0.2s;
+}
+
+.carousel-card:hover {
+
+  transform: translateY(-3px);
+
+  border:
+    1px solid rgba(255,140,80,0.2);
 }
 
 /* =========================
@@ -309,49 +431,6 @@ button:hover {
 }
 
 /* =========================
-   WEEKLY LISTS
-========================= */
-
-.task-list,
-.winner-list {
-
-  list-style: none;
-
-  padding: 0;
-
-  margin-top: 12px;
-
-  text-align: left;
-}
-
-.task-list li,
-.winner-list li {
-
-  padding: 6px 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,0.05);
-
-  font-size: 14px;
-}
-
-/* =========================
-   RANK COLORS
-========================= */
-
-.rank1 {
-  color: #ffd36a;
-}
-
-.rank2 {
-  color: #bcd0ff;
-}
-
-.rank3 {
-  color: #ffb38a;
-}
-
-/* =========================
    MOBILE
 ========================= */
 
@@ -386,257 +465,34 @@ button:hover {
   }
 }
 /* =========================
-   EDIT BUTTON (GLOBAL)
+   SCROLL REVEAL BASE
 ========================= */
-
-.edit-btn {
-
-  position: absolute;
-
-  top: 10px;
-  right: 10px;
-
-  width: auto;
-
-  padding: 6px 10px;
-
-  font-size: 12px;
-
-  border-radius: 8px;
-
-  border: none;
-
-  cursor: pointer;
-
-  background:
-    rgba(255,255,255,0.08);
-
-  color: white;
-
-  transition: 0.2s;
-
-  opacity: 0.6;
-}
-
-/* ========================= */
-
-.edit-btn:hover {
-
-  opacity: 1;
-
-  background:
-    rgba(255,140,80,0.2);
-
-  transform:
-    scale(1.05);
-}
-
-/* ========================= */
-/* REQUIRED FOR POSITIONING */
-/* ========================= */
 
 .home-card,
 .card,
-.panel {
-
-  position: relative;
-}
-:root {
-  --sunset: #ff8a4c;
-  --sunset-soft: rgba(255, 138, 76, 0.25);
-}
-.nav a:hover {
-
-  background:
-    var(--sunset-soft);
-
-  color: var(--sunset);
-}
-.home-card:hover {
-
-  border:
-    1px solid var(--sunset-soft);
-
-  box-shadow:
-    0 0 22px var(--sunset-soft);
-}
-.meta {
-
-  font-size: 13px;
-
-  opacity: 0.7;
-
-  margin-top: 6px;
-
-  text-align: left;
-}
-/* =========================
-   PAGE TRANSITION
-========================= */
-
-body {
-
-  animation: pageIn 0.35s ease-out;
-}
-
-@keyframes pageIn {
-
-  from {
-
-    opacity: 0;
-
-    transform: scale(1.02);
-
-  }
-
-  to {
-
-    opacity: 1;
-
-    transform: scale(1);
-
-  }
-}
-/* =========================
-   BEST LEVELS CAROUSEL
-========================= */
-
-.carousel {
-
-  margin-top: 40px;
-
-  text-align: center;
-}
-
-.carousel h2 {
-
-  margin-bottom: 15px;
-
-  color: var(--sunset, #ff8a4c);
-}
-
-/* ========================= */
-
-.carousel-track {
-
-  display: flex;
-
-  gap: 15px;
-
-  overflow-x: auto;
-
-  padding: 10px 20px;
-
-  scroll-snap-type: x mandatory;
-}
-
-/* ========================= */
-
-.carousel-card {
-
-  min-width: 220px;
-
-  padding: 18px;
-
-  border-radius: 14px;
-
-  background:
-    rgba(255,255,255,0.05);
-
-  border:
-    1px solid rgba(255,255,255,0.05);
-
-  scroll-snap-align: center;
-
-  transition: 0.2s;
-}
-
-.carousel-card:hover {
-
-  transform:
-    translateY(-3px);
-
-  border:
-    1px solid rgba(255,140,80,0.2);
-}
-/* =========================
-   UNIFIED GRID SYSTEM FIX
-========================= */
-
-.grid {
-
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-  gap: 20px;
-
-  padding: 20px;
-
-  justify-items: center;
-}
-
-/* ensures cards don’t stretch weirdly */
-.card {
-
-  width: 100%;
-  max-width: 260px;
-}
+.panel,
 .carousel-panel {
 
-  width: 100%;
+  opacity: 0;
 
-  max-width: 900px;
+  transform:
+    translateY(30px)
+    scale(0.98);
 
-  margin: 0 auto;
-
-  padding: 22px;
-
-  border-radius: 16px;
-
-  background:
-    rgba(255,255,255,0.05);
-
-  border:
-    1px solid rgba(255,255,255,0.05);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
-/* keep carousel inside clean */
-.carousel-panel .carousel-track {
-
-  margin-top: 12px;
-}
-.nav {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 12px;
-
-  justify-content: center;
-}
-
-.nav a {
-
-  min-width: 90px;
-
-  text-align: center;
-}
 /* =========================
-   PARTICLES LAYER
+   ACTIVE STATE
 ========================= */
 
-#particles {
+.show {
 
-  position: fixed;
+  opacity: 1;
 
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 0;
-
-  pointer-events: none;
+  transform:
+    translateY(0)
+    scale(1);
 }
