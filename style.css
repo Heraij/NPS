@@ -697,3 +697,132 @@ button:hover {
       0 0 40px rgba(255, 160, 60, 0.4);
   }
 }
+/* =========================
+   LEADERBOARD BASE ROW
+========================= */
+
+.winner-list .rank {
+
+  padding: 10px 12px;
+
+  margin: 6px 0;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+
+  background:
+    rgba(255,255,255,0.04);
+}
+
+/* =========================
+   HOVER FOCUS MODE
+========================= */
+
+.winner-list:hover .rank {
+
+  opacity: 0.6;
+
+  filter: blur(0.3px);
+}
+
+.winner-list .rank:hover {
+
+  opacity: 1;
+
+  transform:
+    translateY(-3px)
+    scale(1.03);
+
+  background:
+    rgba(255,140,80,0.12);
+
+  box-shadow:
+    0 0 20px rgba(255,140,80,0.15);
+
+  filter: blur(0);
+}
+
+/* =========================
+   RANK COLORS
+========================= */
+
+/* 🥇 FIRST */
+.rank1 {
+
+  border:
+    1px solid rgba(255, 215, 100, 0.35);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 215, 100, 0.10),
+      rgba(255, 255, 255, 0.03)
+    );
+
+  color: #ffd36a;
+
+  text-shadow:
+    0 0 12px rgba(255, 215, 100, 0.4);
+
+  animation: goldPulse 2.5s ease-in-out infinite;
+}
+
+/* 🥈 SECOND */
+.rank2 {
+
+  border:
+    1px solid rgba(180, 200, 255, 0.25);
+
+  color: #bcd0ff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(180, 200, 255, 0.08),
+      rgba(255, 255, 255, 0.03)
+    );
+}
+
+/* 🥉 THIRD */
+.rank3 {
+
+  border:
+    1px solid rgba(255, 170, 120, 0.25);
+
+  color: #ffb38a;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 170, 120, 0.08),
+      rgba(255, 255, 255, 0.03)
+    );
+}
+
+/* =========================
+   GOLD PULSE ANIMATION
+========================= */
+
+@keyframes goldPulse {
+
+  0%, 100% {
+
+    box-shadow:
+      0 0 10px rgba(255, 215, 100, 0.2);
+  }
+
+  50% {
+
+    box-shadow:
+      0 0 25px rgba(255, 215, 100, 0.4);
+  }
+}
