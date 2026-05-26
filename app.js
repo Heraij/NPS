@@ -464,3 +464,35 @@ button:hover {
     max-width: 320px;
   }
 }
+/* =========================
+   SCROLL REVEAL BASE
+========================= */
+
+.home-card,
+.card,
+.panel,
+.carousel-panel {
+
+  opacity: 0;
+
+  transform:
+    translateY(30px)
+    scale(0.98);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* =========================
+   ACTIVE STATE
+========================= */
+
+.show {
+
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
