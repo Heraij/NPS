@@ -570,3 +570,46 @@ button:hover {
   border:
     1px solid rgba(255,210,100,0.2);
 }
+/* =========================
+   WEEKLY TASK LIST
+========================= */
+
+.task-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 12px 0;
+
+  text-align: left;
+}
+
+/* ========================= */
+
+.task-list li {
+
+  padding: 6px 0;
+
+  font-size: 14px;
+
+  opacity: 0.85;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* ========================= */
+
+.home-card.weekly {
+
+  border:
+    1px solid rgba(120,180,255,0.2);
+}
+
+/* ========================= */
+
+.home-card.weekly h2 {
+
+  color: #7fb3ff;
+}
