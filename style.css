@@ -1,22 +1,33 @@
 /* =========================
-   BASE
+   RESET
 ========================= */
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body {
 
-  margin: 0;
-
-  background: #050505;
+  background:
+    radial-gradient(
+      circle at top,
+      #1b1010,
+      #050505 65%
+    );
 
   color: white;
 
   font-family: Arial, sans-serif;
 
   overflow-x: hidden;
+
+  min-height: 100vh;
 }
 
 /* =========================
@@ -48,8 +59,8 @@ body {
   left: 50%;
   top: 50%;
 
-  width: 700px;
-  height: 300px;
+  width: 800px;
+  height: 350px;
 
   transform: translate(-50%, -50%);
 
@@ -60,9 +71,39 @@ body {
       transparent 70%
     );
 
-  filter: blur(100px);
+  filter: blur(110px);
 
   z-index: 0;
+
+  pointer-events: none;
+}
+
+/* ========================= */
+
+.bg-fog-2 {
+
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  width: 500px;
+  height: 240px;
+
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,80,140,0.08),
+      transparent 70%
+    );
+
+  filter: blur(120px);
+
+  z-index: 0;
+
+  pointer-events: none;
 }
 
 /* =========================
@@ -77,40 +118,52 @@ body {
   left: 0;
   right: 0;
 
-  height: 70px;
+  height: 72px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 20px;
+  padding: 0 24px;
 
   background:
-    rgba(0,0,0,0.25);
+    rgba(0,0,0,0.22);
 
   backdrop-filter: blur(10px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
 
   z-index: 100;
 }
 
-/* ========================= */
+/* =========================
+   LOGO
+========================= */
 
 .logo {
 
   font-size: 24px;
   font-weight: bold;
+
+  letter-spacing: 1px;
 }
 
 .logo span {
   color: orange;
 }
 
-/* ========================= */
+/* =========================
+   NAVIGATION
+========================= */
 
 .nav {
 
   display: flex;
-  gap: 10px;
+
+  align-items: center;
+
+  gap: 12px;
 
   flex-wrap: wrap;
 }
@@ -119,25 +172,49 @@ body {
 
 .nav a {
 
+  position: relative;
+
   color: white;
   text-decoration: none;
 
-  padding: 8px 14px;
+  padding: 10px 16px;
 
-  border-radius: 8px;
+  border-radius: 10px;
 
   background:
     rgba(255,255,255,0.05);
 
-  transition: 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+
+  overflow: hidden;
 }
+
+/* ========================= */
 
 .nav a:hover {
 
   background:
-    rgba(255,140,0,0.2);
+    rgba(255,140,0,0.18);
 
   color: orange;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 0 18px rgba(255,140,0,0.15);
+}
+
+/* ========================= */
+
+.nav a:active {
+
+  transform:
+    scale(0.96);
 }
 
 /* =========================
@@ -151,22 +228,43 @@ body {
 
   z-index: 5;
 
-  padding-top: 140px;
+  width: 100%;
+
+  padding-top: 150px;
 
   text-align: center;
 }
 
-/* ========================= */
+/* =========================
+   TITLES
+========================= */
 
 .title,
 .hero h1 {
 
-  font-size: 64px;
+  font-size:
+    clamp(48px, 8vw, 82px);
 
-  margin-bottom: 10px;
+  letter-spacing: 3px;
+
+  margin-bottom: 12px;
+
+  text-shadow:
+    0 0 18px rgba(255,120,80,0.25);
 }
 
 /* ========================= */
+
+.hero p {
+
+  opacity: 0.7;
+
+  font-size: 18px;
+}
+
+/* =========================
+   GRID
+========================= */
 
 .grid {
 
@@ -174,26 +272,57 @@ body {
 
   justify-content: center;
 
+  align-items: flex-start;
+
   gap: 20px;
 
   flex-wrap: wrap;
 
   margin-top: 40px;
+
+  padding: 20px;
 }
 
-/* ========================= */
+/* =========================
+   CARDS / PANELS
+========================= */
 
 .card,
 .panel {
 
-  width: 220px;
+  width: 240px;
 
-  padding: 20px;
+  padding: 22px;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   background:
     rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.22s,
+    box-shadow 0.22s,
+    border 0.22s;
+}
+
+/* ========================= */
+
+.card:hover,
+.panel:hover {
+
+  transform:
+    translateY(-4px);
+
+  border:
+    1px solid rgba(255,140,0,0.2);
+
+  box-shadow:
+    0 0 24px rgba(255,140,0,0.12);
 }
 
 /* =========================
@@ -209,17 +338,52 @@ body {
   align-items: center;
 
   gap: 12px;
+
+  margin-top: 30px;
 }
+
+/* ========================= */
 
 input,
 select,
 button {
 
-  padding: 10px;
+  width: 240px;
 
-  border-radius: 8px;
+  padding: 12px;
 
   border: none;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  color: white;
+
+  outline: none;
+}
+
+/* ========================= */
+
+button {
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+/* ========================= */
+
+button:hover {
+
+  background:
+    rgba(255,140,0,0.18);
+
+  transform:
+    translateY(-2px);
 }
 
 /* =========================
@@ -234,82 +398,34 @@ button {
 
     flex-direction: column;
 
+    gap: 14px;
+
     padding: 14px;
-
-    gap: 12px;
   }
 
-  .hero,
-  .page {
+  .nav {
 
-    padding-top: 180px;
+    justify-content: center;
   }
 
-  .title,
-  .hero h1 {
+  .page,
+  .hero {
 
-    font-size: 42px;
+    padding-top: 190px;
   }
-}
-.nav a {
 
-  position: relative;
+  .card,
+  .panel {
 
-  overflow: hidden;
+    width: 90%;
+    max-width: 320px;
+  }
 
-  transition:
-    background 0.2s,
-    transform 0.2s,
-    color 0.2s,
-    box-shadow 0.2s;
-}
+  input,
+  select,
+  button {
 
-.nav a:hover {
-
-  background:
-    rgba(255,140,0,0.18);
-
-  color: orange;
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 0 18px rgba(255,140,0,0.18);
-}
-
-/* soft glow layer */
-.nav a::after {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,180,120,0.2),
-      transparent
-    );
-
-  opacity: 0;
-
-  transition: 0.25s;
-
-  pointer-events: none;
-}
-
-.nav a:hover::after {
-  opacity: 1;
-}
-body {
-
-  background:
-    radial-gradient(
-      circle at top,
-      #1a1010,
-      #050505 60%
-    );
+    width: 90%;
+    max-width: 320px;
+  }
 }
