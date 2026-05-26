@@ -1,44 +1,108 @@
-<div class="home-grid">
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- SEASONAL DEMON -->
-  <div class="home-card demon">
+<head>
 
-    <h2>Seasonal Demon</h2>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <p class="name">“Crimson Eclipse”</p>
+  <title>NPS SUNSET</title>
 
-    <p class="difficulty">Extreme Demon</p>
- <button class="edit-btn">Edit</button>
-  </div>
+  <link rel="stylesheet" href="style.css">
 
-  <!-- WEEKLY TASKS (NO BUTTON) -->
-  <div class="home-card weekly">
+</head>
 
-    <h2>Weekly Tasks</h2>
+<body>
 
-    <ul class="task-list">
+  <!-- BACKGROUND -->
+  <canvas id="particles"></canvas>
 
-      <li>Complete 3 levels (+20 pts)</li>
-      <li>Submit 1 level (+30 pts)</li>
-      <li>Beat a demon (+50 pts)</li>
+  <div class="bg-fog"></div>
+  <div class="bg-fog-2"></div>
 
-    </ul>
- <button class="edit-btn">Edit</button>
-  </div>
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="assets/audio/song.mp3">
+  </audio>
 
-  <!-- 🏆 WEEKLY WINNERS -->
-  <div class="home-card winners">
+  <!-- TOP BAR -->
+  <header class="topbar">
 
-    <h2>Weekly Winners</h2>
+    <div class="logo">
+      NPS <span>SUNSET</span>
+    </div>
 
-<ul class="winner-list">
+    <div class="nav">
 
-  <li class="rank rank1">🥇 Nova — 120 pts</li>
-  <li class="rank rank2">🥈 Skye — 95 pts</li>
-  <li class="rank rank3">🥉 Hexa — 80 pts</li>
+      <a href="index.html">Home</a>
+      <a href="levels.html">Levels</a>
+      <a href="demons.html">Demons</a>
+      <a href="leaderboard.html">Leaderboard</a>
 
-</ul>
- <button class="edit-btn">Edit</button>
-  </div>
+    </div>
 
-</div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="hero">
+
+    <h1>NPS SUNSET</h1>
+
+    <p>Geometry Dash inspired platform</p>
+
+    <div class="home-grid">
+
+      <!-- SEASONAL DEMON -->
+      <div class="home-card demon">
+
+        <button class="edit-btn">✏ Edit</button>
+
+        <h2>👹 Seasonal Demon</h2>
+
+        <p class="name">“Crimson Eclipse”</p>
+        <p class="difficulty">Extreme Demon</p>
+
+      </div>
+
+      <!-- WEEKLY TASKS -->
+      <div class="home-card weekly">
+
+        <button class="edit-btn">✏ Edit</button>
+
+        <h2>📅 Weekly Tasks</h2>
+
+        <ul class="task-list">
+
+          <li>Complete 3 INSANE levels (+20 pts)</li>
+          <li>Make 1 RATED level (+30 pts)</li>
+          <li>Beat a MEDIUM demon (+50 pts)</li>
+
+        </ul>
+
+      </div>
+
+      <!-- WEEKLY WINNERS -->
+      <div class="home-card winners">
+
+        <button class="edit-btn">✏ Edit</button>
+
+        <h2>🏆 Weekly Winners</h2>
+
+        <ul class="winner-list">
+
+          <li class="rank1">🥇 Nova — 120 pts</li>
+          <li class="rank2">🥈 Skye — 95 pts</li>
+          <li class="rank3">🥉 Hexa — 80 pts</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
