@@ -86,7 +86,18 @@ function animate() {
 }
 
 animate();
+document.querySelectorAll(".edit-btn").forEach(btn => {
 
+  btn.addEventListener("click", (e) => {
+
+    const card = e.target.closest(".home-card, .card, .panel");
+
+    card.classList.toggle("editing");
+
+    console.log("Editing panel:", card);
+  });
+
+});
 /* =========================
    DEBUG
 ========================= */
