@@ -582,3 +582,44 @@ body {
   width: 100%;
   max-width: 260px;
 }
+.carousel-panel {
+
+  width: 100%;
+
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+}
+
+/* keep carousel inside clean */
+.carousel-panel .carousel-track {
+
+  margin-top: 12px;
+}
+.nav {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  justify-content: center;
+}
+
+.nav a {
+
+  min-width: 90px;
+
+  text-align: center;
+}
