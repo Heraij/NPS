@@ -590,3 +590,34 @@ button:hover {
 
   padding: 10px 14px;
 }
+/* =========================
+   GD MENU BUTTON STYLE
+========================= */
+
+button {
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+/* =========================
+   HOVER = SELECTION STATE
+========================= */
+
+button:hover {
+
+  transform:
+    translateY(-2px)
+    scale(1.03);
+
+  background:
+    rgba(255, 138, 76, 0.18);
+
+  box-shadow:
+    0 0 18px rgba(255, 138, 76, 0.35),
+    0 0 40px rgba(255, 120, 80, 0.15);
+
+  color: #ff8a4c;
+}
