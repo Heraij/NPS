@@ -127,3 +127,26 @@ document.querySelectorAll(".edit-btn").forEach(btn => {
   });
 
 });
+document.querySelectorAll("a").forEach(link => {
+
+  if (link.href.includes(window.location.host)) {
+
+    link.addEventListener("click", (e) => {
+
+      e.preventDefault();
+
+      const target = link.href;
+
+      document.body.style.opacity = "0";
+      document.body.style.transform = "scale(1.02)";
+      document.body.style.transition = "0.25s ease";
+
+      setTimeout(() => {
+        window.location.href = target;
+      }, 250);
+
+    });
+
+  }
+
+});
