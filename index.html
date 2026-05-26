@@ -1,127 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>NPS SUNSET</title>
-
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-  <!-- BACKGROUND -->
-  <canvas id="particles"></canvas>
+<canvas id="particles"></canvas>
+<div class="bg-fog"></div>
+<div class="bg-fog-2"></div>
 
-  <div class="bg-fog"></div>
-  <div class="bg-fog-2"></div>
+<audio id="music" loop>
+  <source src="assets/audio/song.mp3">
+</audio>
 
-  <!-- MUSIC -->
-  <audio id="music" loop>
-    <source src="assets/audio/song.mp3">
-  </audio>
+<header class="topbar">
+  <div class="logo">NPS <span>SUNSET</span></div>
 
-  <!-- TOP BAR -->
-  <header class="topbar">
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="levels.html">Levels</a>
+    <a href="demons.html">Demons</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </div>
+</header>
 
-    <div class="logo">
-      NPS <span>SUNSET</span>
+<main class="hero">
+  <h1>NPS SUNSET</h1>
+
+  <div class="home-grid">
+
+    <div class="home-card">
+      <h2>👹 Seasonal Demon</h2>
+      <p>Crimson Eclipse</p>
+      <p>Extreme Demon</p>
     </div>
 
-    <div class="nav">
-
-      <a href="index.html">Home</a>
-      <a href="levels.html">Levels</a>
-      <a href="demons.html">Demons</a>
-      <a href="leaderboard.html">Leaderboard</a>
-
+    <div class="home-card">
+      <h2>📅 Weekly Tasks</h2>
+      <p>Complete challenges to earn points</p>
     </div>
 
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main class="hero">
-
-    <h1>NPS SUNSET</h1>
-
-    <p>Geometry Dash inspired platform</p>
-
-    <div class="home-grid">
-
-      <!-- SEASONAL DEMON -->
-      <div class="home-card demon">
-
-        <h2>👹 Seasonal Demon</h2>
-
-        <p class="name">“Crimson Eclipse”</p>
-        <p class="difficulty">Extreme Demon</p>
-
-      </div>
-
-      <!-- WEEKLY TASKS -->
-      <div class="home-card weekly">
-
-        <h2>📅 Weekly Tasks</h2>
-
-        <ul class="task-list">
-
-          <li>Complete 3 INSANE levels (+20 pts)</li>
-          <li>Make 1 RATED level (+30 pts)</li>
-          <li>Beat a MEDIUM demon (+50 pts)</li>
-
-        </ul>
-
-      </div>
-
-      <!-- WEEKLY WINNERS -->
-      <div class="home-card winners">
-
-        <h2>🏆 Weekly Winners</h2>
-
-        <ul class="winner-list">
-
-          <li class="rank1">Placeholder</li>
-          <li class="rank2">Placeholder</li>
-          <li class="rank3">Placeholder</li>
-
-        </ul>
-<!-- BEST LEVELS PANEL -->
-<div class="home-card carousel-panel">
-
-  <h2>⭐ Best Levels</h2>
-
-  <div class="carousel-track">
-
-    <div class="carousel-card">
-      <h3>Sunset Rift</h3>
-      <p>ID: LR-001</p>
-    </div>
-
-    <div class="carousel-card">
-      <h3>Neon Drift</h3>
-      <p>ID: LR-002</p>
-    </div>
-
-    <div class="carousel-card">
-      <h3>Void Pulse</h3>
-      <p>ID: LR-003</p>
+    <div class="home-card">
+      <h2>🏆 Weekly Winners</h2>
+      <p>Nova • Skye • Hexa</p>
     </div>
 
   </div>
 
-</div>
-      </div>
+  <div class="carousel-panel">
+    <h2>⭐ Best Levels</h2>
 
-</div>
+    <div class="carousel-track">
+      <div class="carousel-card">Sunset Rift</div>
+      <div class="carousel-card">Neon Drift</div>
+      <div class="carousel-card">Void Pulse</div>
     </div>
+  </div>
 
-  </main>
+</main>
 
-  <script src="app.js"></script>
-
+<script src="app.js"></script>
 </body>
 </html>
