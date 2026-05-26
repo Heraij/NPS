@@ -1,206 +1,466 @@
 /* =========================
-   MUSIC SYSTEM (SAFE)
+   RESET
 ========================= */
 
-const music = document.getElementById("music");
-
-let musicStarted = false;
-
-window.addEventListener("click", () => {
-
-  if (musicStarted) return;
-
-  music.volume = 0.4;
-
-  music.play().catch(err => {
-    console.log("Music blocked:", err);
-  });
-
-  musicStarted = true;
-});
-
-/* =========================
-   PARTICLES SYSTEM
-========================= */
-
-/* =========================
-   PARTICLES SYSTEM
-========================= */
-
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-
-function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-resize();
-window.addEventListener("resize", resize);
+/* =========================
+   BASE
+========================= */
+
+body {
+
+  background:
+    radial-gradient(circle at top, #1b1010, #050505 65%);
+
+  color: white;
+
+  font-family: Arial, sans-serif;
+
+  overflow-x: hidden;
+
+  min-height: 100vh;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,140,80,0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,140,80,0.7);
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles {
+
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* =========================
+   FOG LAYERS
+========================= */
+
+.bg-fog,
+.bg-fog-2 {
+
+  position: fixed;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  filter: blur(110px);
+
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.bg-fog {
+
+  width: 800px;
+  height: 350px;
+
+  background:
+    radial-gradient(circle, rgba(255,120,80,0.18), transparent 70%);
+}
+
+.bg-fog-2 {
+
+  width: 500px;
+  height: 240px;
+
+  background:
+    radial-gradient(circle, rgba(255,80,140,0.08), transparent 70%);
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 72px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 24px;
+
+  background:
+    rgba(0,0,0,0.25);
+
+  backdrop-filter: blur(10px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+  z-index: 100;
+}
 
 /* ========================= */
 
-const particles = [];
+.logo {
 
-for (let i = 0; i < 60; i++) {
+  font-size: 24px;
+  font-weight: bold;
 
-  particles.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    vx: (Math.random() - 0.5) * 0.6,
-    vy: (Math.random() - 0.5) * 0.6,
-    size: Math.random() * 2 + 1
-  });
-
+  letter-spacing: 1px;
 }
 
-/* ========================= */
-
-function animate() {
-
-  requestAnimationFrame(animate);
-
-  // soft fade trail (GD style glow)
-  ctx.fillStyle = "rgba(5,5,5,0.12)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  particles.forEach(p => {
-
-    p.x += p.vx;
-    p.y += p.vy;
-
-    // wrap edges
-    if (p.x < 0) p.x = canvas.width;
-    if (p.x > canvas.width) p.x = 0;
-
-    if (p.y < 0) p.y = canvas.height;
-    if (p.y > canvas.height) p.y = 0;
-
-    // draw particle
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-    ctx.fillStyle = "rgba(255,140,80,0.65)";
-    ctx.fill();
-
-  });
-
-}
-
-animate();
-/* ========================= */
-
-const particles = [];
-
-for (let i = 0; i < 70; i++) {
-
-  particles.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    vx: (Math.random() - 0.5) * 0.5,
-    vy: (Math.random() - 0.5) * 0.5,
-    size: Math.random() * 2 + 1
-  });
-
+.logo span {
+  color: #ff8a4c;
 }
 
 /* =========================
-   ANIMATION LOOP
+   NAVIGATION
 ========================= */
 
-function animate() {
+.nav {
 
-  requestAnimationFrame(animate);
-
-  // trail effect (important for GD feel)
-  ctx.fillStyle = "rgba(5,5,5,0.12)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  particles.forEach(p => {
-
-    p.x += p.vx;
-    p.y += p.vy;
-
-    // wrap edges
-    if (p.x < 0) p.x = canvas.width;
-    if (p.x > canvas.width) p.x = 0;
-
-    if (p.y < 0) p.y = canvas.height;
-    if (p.y > canvas.height) p.y = 0;
-
-    // draw
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-    ctx.fillStyle = "rgba(255,140,80,0.6)";
-    ctx.fill();
-
-  });
-
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
+
+.nav a {
+
+  color: white;
+  text-decoration: none;
+
+  padding: 10px 16px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  transition: 0.2s;
+
+  display: inline-block;
+}
+
+.nav a:hover {
+
+  background:
+    rgba(255,140,80,0.18);
+
+  color: #ff8a4c;
+
+  transform: translateY(-2px);
+}
+
 /* =========================
-   DEBUG
+   PAGE LAYOUT
 ========================= */
 
-console.log("NPS SYSTEM LOADED ✔");
+.page,
+.hero {
 
-document.querySelectorAll(".edit-btn").forEach(btn => {
+  position: relative;
 
-  btn.addEventListener("click", (e) => {
+  z-index: 5;
 
-    const card = e.target.closest(".home-card, .card, .panel");
+  text-align: center;
 
-    // allow editing only text elements inside card
-    const textElements = card.querySelectorAll("h2, p, li");
+  padding-top: 150px;
+}
 
-    const isEditing = card.classList.contains("editing");
+/* =========================
+   TITLES
+========================= */
 
-    if (!isEditing) {
+.title,
+.hero h1 {
 
-      card.classList.add("editing");
+  font-size: clamp(48px, 8vw, 82px);
 
-      textElements.forEach(el => {
-        el.contentEditable = true;
-        el.style.outline = "1px dashed rgba(255,140,80,0.4)";
-      });
+  letter-spacing: 3px;
 
-      btn.textContent = "💾 Save";
+  margin-bottom: 12px;
 
-    } else {
+  color: #ff8a4c;
 
-      card.classList.remove("editing");
+  text-shadow:
+    0 0 18px rgba(255,120,80,0.25);
+}
 
-      textElements.forEach(el => {
-        el.contentEditable = false;
-        el.style.outline = "none";
-      });
+/* =========================
+   HOME GRID (FIXED STACK)
+========================= */
 
-      btn.textContent = "✏ Edit";
-    }
+.home-grid {
 
-  });
+  display: flex;
 
-});
-document.querySelectorAll("a").forEach(link => {
+  flex-direction: column;
 
-  if (link.href.includes(window.location.host)) {
+  align-items: center;
 
-    link.addEventListener("click", (e) => {
+  gap: 20px;
 
-      e.preventDefault();
+  margin-top: 40px;
 
-      const target = link.href;
+  padding: 20px;
+}
 
-      document.body.style.opacity = "0";
-      document.body.style.transform = "scale(1.02)";
-      document.body.style.transition = "0.25s ease";
+/* =========================
+   CARDS
+========================= */
 
-      setTimeout(() => {
-        window.location.href = target;
-      }, 250);
+.card,
+.panel,
+.home-card {
 
-    });
+  width: 260px;
 
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(8px);
+
+  transition: 0.2s;
+}
+
+.card:hover,
+.panel:hover,
+.home-card:hover {
+
+  transform: translateY(-4px);
+
+  border:
+    1px solid rgba(255,140,80,0.2);
+
+  box-shadow:
+    0 0 22px rgba(255,140,80,0.12);
+}
+
+/* =========================
+   WEEKLY + WINNERS LISTS
+========================= */
+
+.task-list,
+.winner-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin-top: 12px;
+
+  text-align: left;
+}
+
+.task-list li,
+.winner-list li {
+
+  padding: 6px 0;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+  font-size: 14px;
+}
+
+/* =========================
+   RANK COLORS
+========================= */
+
+.rank1 { color: #ffd36a; }
+.rank2 { color: #bcd0ff; }
+.rank3 { color: #ffb38a; }
+
+/* =========================
+   BEST LEVELS CAROUSEL
+========================= */
+
+.carousel-panel {
+
+  width: 90%;
+
+  max-width: 900px;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+}
+
+.carousel-track {
+
+  display: flex;
+
+  gap: 15px;
+
+  overflow-x: auto;
+
+  padding: 10px;
+
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-card {
+
+  min-width: 220px;
+
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  scroll-snap-align: center;
+
+  transition: 0.2s;
+}
+
+.carousel-card:hover {
+
+  transform: translateY(-3px);
+
+  border:
+    1px solid rgba(255,140,80,0.2);
+}
+
+/* =========================
+   FORMS
+========================= */
+
+.form {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+input,
+select,
+button {
+
+  width: 260px;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  color: white;
+
+  outline: none;
+}
+
+button {
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+button:hover {
+
+  background:
+    rgba(255,140,80,0.18);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .topbar {
+
+    flex-direction: column;
+
+    height: auto;
+
+    gap: 12px;
+
+    padding: 14px;
   }
 
-});
+  .page,
+  .hero {
+
+    padding-top: 190px;
+  }
+
+  .card,
+  .panel,
+  .home-card,
+  input,
+  select,
+  button {
+
+    width: 90%;
+    max-width: 320px;
+  }
+}
