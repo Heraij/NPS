@@ -192,14 +192,11 @@ body {
 .title,
 .hero h1 {
 
-  font-size: clamp(48px, 8vw, 82px);
-
-  letter-spacing: 3px;
-
-  margin-bottom: 12px;
+  color: var(--sunset);
 
   text-shadow:
-    0 0 18px rgba(255,120,80,0.25);
+    0 0 18px var(--sunset-soft),
+    0 0 40px rgba(255,120,80,0.15);
 }
 
 /* =========================
@@ -443,4 +440,8 @@ button:hover {
 .panel {
 
   position: relative;
+}
+:root {
+  --sunset: #ff8a4c;
+  --sunset-soft: rgba(255, 138, 76, 0.25);
 }
