@@ -1,4 +1,33 @@
 /* =========================
+   LAYER FIXES
+========================= */
+
+.page,
+.panel,
+.level-card,
+.demon-card,
+.lb-wrapper,
+.best-levels,
+.download-grid {
+
+  position: relative;
+
+  z-index: 5;
+}
+
+/* =========================
+   FORCE PANELS VISIBLE
+========================= */
+
+.panel,
+.level-card,
+.demon-card {
+
+  opacity: 1 !important;
+
+  transform: none !important;
+}
+/* =========================
    RESET
 ========================= */
 
