@@ -388,3 +388,59 @@ button:hover {
     max-width: 320px;
   }
 }
+/* =========================
+   EDIT BUTTON (GLOBAL)
+========================= */
+
+.edit-btn {
+
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  width: auto;
+
+  padding: 6px 10px;
+
+  font-size: 12px;
+
+  border-radius: 8px;
+
+  border: none;
+
+  cursor: pointer;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color: white;
+
+  transition: 0.2s;
+
+  opacity: 0.6;
+}
+
+/* ========================= */
+
+.edit-btn:hover {
+
+  opacity: 1;
+
+  background:
+    rgba(255,140,80,0.2);
+
+  transform:
+    scale(1.05);
+}
+
+/* ========================= */
+/* REQUIRED FOR POSITIONING */
+/* ========================= */
+
+.home-card,
+.card,
+.panel {
+
+  position: relative;
+}
