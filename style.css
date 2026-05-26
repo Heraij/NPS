@@ -497,3 +497,88 @@ body {
 
   }
 }
+/* =========================
+   BEST LEVELS CAROUSEL
+========================= */
+
+.carousel {
+
+  margin-top: 40px;
+
+  text-align: center;
+}
+
+.carousel h2 {
+
+  margin-bottom: 15px;
+
+  color: var(--sunset, #ff8a4c);
+}
+
+/* ========================= */
+
+.carousel-track {
+
+  display: flex;
+
+  gap: 15px;
+
+  overflow-x: auto;
+
+  padding: 10px 20px;
+
+  scroll-snap-type: x mandatory;
+}
+
+/* ========================= */
+
+.carousel-card {
+
+  min-width: 220px;
+
+  padding: 18px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.05);
+
+  scroll-snap-align: center;
+
+  transition: 0.2s;
+}
+
+.carousel-card:hover {
+
+  transform:
+    translateY(-3px);
+
+  border:
+    1px solid rgba(255,140,80,0.2);
+}
+/* =========================
+   UNIFIED GRID SYSTEM FIX
+========================= */
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 20px;
+
+  padding: 20px;
+
+  justify-items: center;
+}
+
+/* ensures cards don’t stretch weirdly */
+.card {
+
+  width: 100%;
+  max-width: 260px;
+}
