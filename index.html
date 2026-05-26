@@ -1,65 +1,85 @@
+<!-- =========================
+INDEX.HTML
+========================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NPS SUNSET</title>
+  <title>NPS vSUNSET</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <canvas id="particles"></canvas>
-<div class="bg-fog"></div>
-<div class="bg-fog-2"></div>
-
-<audio id="music" loop>
-  <source src="assets/audio/song.mp3">
-</audio>
 
 <header class="topbar">
-  <div class="logo">NPS <span>SUNSET</span></div>
 
-  <div class="nav">
+  <div class="logo">NPS vSUNSET</div>
+
+  <nav class="nav">
     <a href="index.html">Home</a>
     <a href="levels.html">Levels</a>
     <a href="demons.html">Demons</a>
     <a href="leaderboard.html">Leaderboard</a>
-  </div>
+    <a href="download.html">Download</a>
+  </nav>
+
 </header>
 
-<main class="hero">
-  <h1>NPS SUNSET</h1>
+<main class="page">
 
-  <div class="home-grid">
+  <h1 class="title">NPS vSUNSET</h1>
 
-    <div class="home-card">
+  <section class="home-grid">
+
+    <div class="panel">
       <h2>👹 Seasonal Demon</h2>
       <p>Crimson Eclipse</p>
-      <p>Extreme Demon</p>
     </div>
 
-    <div class="home-card">
+    <div class="panel">
       <h2>📅 Weekly Tasks</h2>
-      <p>Complete challenges to earn points</p>
+      <p>Beat 3 demons</p>
+      <p>Rate 5 levels</p>
     </div>
 
-    <div class="home-card">
-      <h2>🏆 Weekly Winners</h2>
-      <p>Nova • Skye • Hexa</p>
+    <div class="panel">
+      <h2>🏆 Weekly Leaderboard</h2>
+      <p>#1 Nova</p>
+      <p>#2 Hexa</p>
+      <p>#3 Skye</p>
     </div>
 
-  </div>
+  </section>
 
-  <div class="carousel-panel">
-    <h2>⭐ Best Levels</h2>
+  <section class="best-levels">
 
-    <div class="carousel-track">
-      <div class="carousel-card">Sunset Rift</div>
-      <div class="carousel-card">Neon Drift</div>
-      <div class="carousel-card">Void Pulse</div>
+    <div class="panel">
+
+      <h2>⭐ Best Levels</h2>
+
+      <div class="level-grid">
+
+        <div class="level-card">
+          Sunset Rift
+        </div>
+
+        <div class="level-card">
+          Neon Drift
+        </div>
+
+        <div class="level-card">
+          Void Pulse
+        </div>
+
+      </div>
+
     </div>
-  </div>
+
+  </section>
 
 </main>
 
