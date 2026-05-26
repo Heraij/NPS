@@ -429,3 +429,144 @@ button:hover {
     max-width: 320px;
   }
 }
+/* =========================
+   HOME GRID
+========================= */
+
+.home-grid {
+
+  display: flex;
+
+  justify-content: center;
+  align-items: stretch;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+  margin-top: 40px;
+}
+
+/* ========================= */
+
+.home-card {
+
+  width: 280px;
+
+  padding: 22px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+/* ========================= */
+
+.home-card:hover {
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 0 25px rgba(255,140,80,0.15);
+}
+
+/* ========================= */
+
+.home-card h2 {
+
+  font-size: 18px;
+
+  margin-bottom: 10px;
+
+}
+
+/* ========================= */
+
+.home-card .name {
+
+  font-size: 20px;
+
+  margin: 10px 0;
+
+  color: white;
+}
+
+/* ========================= */
+
+.home-card .difficulty {
+
+  color: #ff6b6b;
+
+  font-size: 14px;
+}
+
+/* ========================= */
+
+.home-card .reward {
+
+  color: #ffd166;
+
+  font-size: 14px;
+}
+
+/* ========================= */
+
+.home-card button {
+
+  margin-top: 12px;
+
+  width: 100%;
+
+  padding: 10px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  cursor: pointer;
+
+  background:
+    rgba(255,140,80,0.15);
+
+  color: white;
+
+  transition: 0.2s;
+}
+
+/* ========================= */
+
+.home-card button:hover {
+
+  background:
+    rgba(255,140,80,0.3);
+
+  transform:
+    scale(1.03);
+}
+
+/* =========================
+   SPECIAL STYLING
+========================= */
+
+.home-card.demon {
+
+  border:
+    1px solid rgba(255,80,80,0.2);
+}
+
+.home-card.daily {
+
+  border:
+    1px solid rgba(255,210,100,0.2);
+}
