@@ -1,8 +1,13 @@
+<!-- =========================
+LEADERBOARD.HTML
+========================= -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaderboard</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,33 +16,82 @@
 <canvas id="particles"></canvas>
 
 <header class="topbar">
-  <div class="logo">NPS <span>SUNSET</span></div>
 
-  <div class="nav">
+  <div class="logo">NPS vSUNSET</div>
+
+  <nav class="nav">
     <a href="index.html">Home</a>
     <a href="levels.html">Levels</a>
     <a href="demons.html">Demons</a>
     <a href="leaderboard.html">Leaderboard</a>
-  </div>
+    <a href="download.html">Download</a>
+  </nav>
+
 </header>
 
 <main class="page">
 
   <h1 class="title">LEADERBOARD</h1>
 
-  <div class="grid">
+  <section class="lb-wrapper">
 
-    <div class="card">🥇 Nova — 120 pts</div>
-    <div class="card">🥈 Skye — 95 pts</div>
-    <div class="card">🥉 Hexa — 80 pts</div>
+    <div class="lb-column">
 
-  </div>
+      <h2>Creators</h2>
 
-  <div class="card">
-    <h3>Rewards</h3>
-    <p>Rate: 1–25 pts</p>
-    <p>Completions: 1–25 pts</p>
-  </div>
+      <div class="demon-list">
+
+        <div class="demon-card">#1 Nova — 220 pts</div>
+        <div class="demon-card">#2 Hexa — 180 pts</div>
+
+      </div>
+
+    </div>
+
+    <div class="lb-column">
+
+      <h2>Players</h2>
+
+      <div class="demon-list">
+
+        <div class="demon-card">#1 Skye — 250 pts</div>
+        <div class="demon-card">#2 Lynx — 210 pts</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="rewards">
+
+    <div class="panel">
+
+      <h2>🏆 Rewards</h2>
+
+      <br>
+
+      <h3>⭐ Rate Rewards</h3>
+
+      <p>Rate = 1p</p>
+      <p>Feature = 2p</p>
+      <p>Epic = 5p</p>
+      <p>Legendary = 10p</p>
+      <p>Mythic = 25p</p>
+
+      <br>
+
+      <h3>👹 Completion Rewards</h3>
+
+      <p>Easy Demon = 1p</p>
+      <p>Medium Demon = 2p</p>
+      <p>Hard Demon = 5p</p>
+      <p>Insane Demon = 10p</p>
+      <p>Extreme Demon = 25p</p>
+
+    </div>
+
+  </section>
 
 </main>
 
