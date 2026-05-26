@@ -1,123 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>PAGE NAME</title>
-
+  <title>Leaderboard</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-<body>
+<canvas id="particles"></canvas>
 
-  <!-- PARTICLES -->
-  <canvas id="particles"></canvas>
+<header class="topbar">
+  <div class="logo">NPS <span>SUNSET</span></div>
 
-  <!-- FOG -->
-  <div class="bg-fog"></div>
-  <div class="bg-fog-2"></div>
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="levels.html">Levels</a>
+    <a href="demons.html">Demons</a>
+    <a href="leaderboard.html">Leaderboard</a>
+  </div>
+</header>
 
-  <!-- MUSIC -->
-  <audio id="music" loop>
-    <source src="assets/audio/song.mp3">
-  </audio>
-
-  <!-- NAV -->
-  <header class="topbar">
-
-    <div class="logo">
-      NPS <span>SUNSET</span>
-    </div>
-
-<div class="nav">
-
-  <a href="index.html">Home</a>
-  <a href="levels.html">Levels</a>
-  <a href="demons.html">Demons</a>
-  <a href="leaderboard.html">Leaderboard</a>
-
-</div>
-
-    </div>
-
-  </header>
-
-  <!-- PAGE -->
-  <main class="page">
-
-    <!-- CONTENT HERE -->
 <main class="page">
 
-  <h1 class="title">
-    LEADERBOARD
-  </h1>
+  <h1 class="title">LEADERBOARD</h1>
 
   <div class="grid">
 
-    <div class="panel">
-
-      <h2>Creators</h2>
-
-      <p>Wallahi boy - </p>
-      <p>Hexa — 90</p>
-    </div>
-
-    <div class="panel">
-
-      <h2>Players</h2>
-
-      <p>Skye — 220</p>
-      <p>Zeno — 170</p>
-    </div> 
-
-  </div>
-<div class="home-card rewards-panel">
-
-  <h2>💰 Reward System</h2>
-
-  <div class="reward-section">
-
-    <h3>⭐ Rate Rewards</h3>
-
-    <ul>
-      <li>Rate — +1 pt</li>
-      <li>Featured — +2 pts</li>
-      <li>Epic — +5 pts</li>
-      <li>Legendary — +10 pts</li>
-      <li>Mythic — +25 pts</li>
-    </ul>
+    <div class="card">🥇 Nova — 120 pts</div>
+    <div class="card">🥈 Skye — 95 pts</div>
+    <div class="card">🥉 Hexa — 80 pts</div>
 
   </div>
 
-  <div class="reward-section">
-
-    <h3>👹 Completion Rewards</h3>
-
-    <ul>
-      <li>Easy Demon — +1 pt</li>
-      <li>Medium Demon — +2 pts</li>
-      <li>Hard Demon — +5 pts</li>
-      <li>Insane Demon — +10 pts</li>
-      <li>Extreme Demon — +25 pts</li>
-    </ul>
-
+  <div class="card">
+    <h3>Rewards</h3>
+    <p>Rate: 1–25 pts</p>
+    <p>Completions: 1–25 pts</p>
   </div>
 
-</div>
 </main>
-  </main>
 
-  <script src="app.js"></script>
-
+<script src="app.js"></script>
 </body>
 </html>
