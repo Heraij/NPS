@@ -1,132 +1,94 @@
-const hoverSound =
-  document.getElementById("hoverSound");
+/* =========================
+   MUSIC SYSTEM (SAFE)
+========================= */
 
-const clickSound =
-  document.getElementById("clickSound");
-
-document.querySelectorAll(".nav a")
-.forEach(btn => {
-
-  btn.addEventListener("mouseenter", () => {
-
-    hoverSound.currentTime = 0;
-    hoverSound.volume = 0.2;
-    hoverSound.play();
-  });
-
-  btn.addEventListener("click", () => {
-
-    clickSound.currentTime = 0;
-    clickSound.volume = 0.3;
-    clickSound.play();
-  });
-});
 const music = document.getElementById("music");
 
 let musicStarted = false;
 
-/* =========================
-   AUTO MUSIC START
-========================= */
-
 window.addEventListener("click", () => {
 
-  if (!musicStarted) {
+  if (musicStarted) return;
 
-    music.volume = 0.4;
-    music.play();
+  music.volume = 0.4;
 
-    musicStarted = true;
-  }
+  music.play().catch(err => {
+    console.log("Music blocked:", err);
+  });
+
+  musicStarted = true;
 });
 
 /* =========================
-   DEBUG SAFE LOG
+   PARTICLES SYSTEM
 ========================= */
 
-console.log("NPS SYSTEM LOADED");
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener("resize", () => {
+function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-});
-const music = document.getElementById("music");
-
-let audioContext;
-let analyser;
-let dataArray;
-
-function initAudio() {
-
-  audioContext = new AudioContext();
-
-  const source =
-    audioContext.createMediaElementSource(music);
-
-  analyser = audioContext.createAnalyser();
-
-  source.connect(analyser);
-  analyser.connect(audioContext.destination);
-
-  analyser.fftSize = 64;
-
-  dataArray = new Uint8Array(analyser.frequencyBinCount);
 }
+
+resize();
+window.addEventListener("resize", resize);
+
+/* ========================= */
+
+const particles = [];
+
+for (let i = 0; i < 70; i++) {
+
+  particles.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.5,
+    vy: (Math.random() - 0.5) * 0.5,
+    size: Math.random() * 2 + 1
+  });
+
+}
+
+/* =========================
+   ANIMATION LOOP
+========================= */
+
 function animate() {
 
   requestAnimationFrame(animate);
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  let bass = 0;
-
-  if (analyser) {
-    analyser.getByteFrequencyData(dataArray);
-    bass = dataArray[1] / 255;
-  }
+  // trail effect (important for GD feel)
+  ctx.fillStyle = "rgba(5,5,5,0.12)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   particles.forEach(p => {
 
-    p.x += p.vx * (1 + bass * 3);
-    p.y += p.vy * (1 + bass * 3);
+    p.x += p.vx;
+    p.y += p.vy;
 
+    // wrap edges
     if (p.x < 0) p.x = canvas.width;
     if (p.x > canvas.width) p.x = 0;
 
     if (p.y < 0) p.y = canvas.height;
     if (p.y > canvas.height) p.y = 0;
 
+    // draw
     ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
 
-    ctx.arc(
-      p.x,
-      p.y,
-      p.size + bass * 2,
-      0,
-      Math.PI * 2
-    );
-
-    ctx.fillStyle =
-      `rgba(255, ${120 + bass * 100}, 80, 0.7)`;
-
+    ctx.fillStyle = "rgba(255,140,80,0.6)";
     ctx.fill();
+
   });
+
 }
 
 animate();
-window.addEventListener("click", () => {
 
-  if (!musicStarted) {
+/* =========================
+   DEBUG
+========================= */
 
-    music.play();
-
-    initAudio(); // key GD-style reaction starts here
-
-    musicStarted = true;
-  }
-});
+console.log("NPS SYSTEM LOADED ✔");
