@@ -82,7 +82,7 @@ function animate() {
 animate();
 
 /* =========================
-   SCROLL REVEAL (GD MENU STYLE)
+   SCROLL REVEAL SYSTEM
 ========================= */
 
 const observer = new IntersectionObserver((entries) => {
@@ -90,7 +90,9 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
 
     if (entry.isIntersecting) {
+
       entry.target.classList.add("show");
+
     }
 
   });
@@ -99,10 +101,15 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.15
 });
 
+/* ========================= */
+
 document.querySelectorAll(
   ".home-card, .card, .panel, .carousel-panel"
-).forEach(el => observer.observe(el));
+).forEach(el => {
 
+  observer.observe(el);
+
+});
 /* =========================
    PAGE TRANSITION
 ========================= */
