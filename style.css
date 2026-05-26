@@ -470,3 +470,30 @@ button:hover {
 
   text-align: left;
 }
+/* =========================
+   PAGE TRANSITION
+========================= */
+
+body {
+
+  animation: pageIn 0.35s ease-out;
+}
+
+@keyframes pageIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: scale(1.02);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+  }
+}
