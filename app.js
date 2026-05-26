@@ -165,3 +165,58 @@ function animateParticles() {
 }
 
 animateParticles();
+/* =========================
+   PARALLAX SYSTEM
+========================= */
+
+const fog1 = document.querySelector(".fog1");
+const fog2 = document.querySelector(".fog2");
+
+/* ========================= */
+
+document.addEventListener("mousemove", (e) => {
+
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  fog1.style.transform =
+    `translate(calc(-50% + ${x * 30}px),
+               calc(-50% + ${y * 20}px))`;
+
+  fog2.style.transform =
+    `translate(calc(-50% + ${x * -20}px),
+               calc(-50% + ${y * -12}px))`;
+});
+
+/* =========================
+   SLOW FLOATING MOTION
+========================= */
+
+let fogTime = 0;
+
+function animateFog() {
+
+  fogTime += 0.002;
+
+  const offsetX =
+    Math.sin(fogTime) * 20;
+
+  const offsetY =
+    Math.cos(fogTime * 0.8) * 12;
+
+  fog1.style.marginLeft =
+    `${offsetX}px`;
+
+  fog1.style.marginTop =
+    `${offsetY}px`;
+
+  fog2.style.marginLeft =
+    `${-offsetX * 0.6}px`;
+
+  fog2.style.marginTop =
+    `${-offsetY * 0.6}px`;
+
+  requestAnimationFrame(animateFog);
+}
+
+animateFog();
