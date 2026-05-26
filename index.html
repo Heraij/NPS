@@ -1,102 +1,44 @@
-<audio id="hoverSound">
-  <source src="assets/audio/hover.mp3">
-</audio>
+<div class="home-grid">
 
-<audio id="clickSound">
-  <source src="assets/audio/click.mp3">
-</audio>
-<!DOCTYPE html>
-<html lang="en">
+  <!-- SEASONAL DEMON -->
+  <div class="home-card demon">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NPS SUNSET</title>
+    <h2>Seasonal Demon</h2>
 
-  <link rel="stylesheet" href="style.css">
-</head>
+    <p class="name">“Crimson Eclipse”</p>
 
-<body>
-<body>
+    <p class="difficulty">Extreme Demon</p>
 
-  <!-- PARTICLES -->
-  <canvas id="particles"></canvas>
+  </div>
 
-  <!-- FOG -->
-  <div class="bg-fog"></div>
-  <div class="bg-fog-2"></div>
-
-  <!-- MUSIC -->
-  <audio id="music" loop>
-    <source src="assets/audio/song.mp3">
-  </audio>
-
-  <!-- NAV -->
-  <header class="topbar">
-    
-    <div class="logo">
-      NPS <span>SUNSET</span>
-    </div>
-
-    <div class="nav">
-
-      <a href="index.html">Home</a>
-      <a href="levels.html">Levels</a>
-      <a href="demons.html">Demons</a>
-      <a href="leaderboard.html">Leaderboard</a>
-     <a href="https://discord.com/channels/1507254584056348854/1508839664117743786" target="_blank">
-  Submit
-</a>
-      <a href="https://newps.ps.fhgdps.com/dashboard/">Dashboard</a>
-
-    </div>
-
-  </header>
-
-<main class="hero">
-
-  <h1>NPS SUNSET</h1>
-  <p>Geometry Dash inspired platform</p>
-
-  <div class="home-grid">
-
-    <!-- SEASONAL DEMON -->
-    <div class="home-card demon">
-
-      <h2>👹 Seasonal Demon</h2>
-
-      <p class="name">“Crimson Eclipse”</p>
-
-      <p class="difficulty">Extreme Demon</p>
-
-      <button>View Challenge</button>
-
-    </div>
-
-    <!-- DAILY CHALLENGE -->
+  <!-- WEEKLY TASKS (NO BUTTON) -->
   <div class="home-card weekly">
 
-  <h2>📅 Weekly Tasks</h2>
+    <h2>Weekly Tasks</h2>
 
-  <ul class="task-list">
+    <ul class="task-list">
 
-    <li>Complete 3 levels (+20 pts)</li>
-    <li>Submit 1 level (+30 pts)</li>
-    <li>Beat a demon (+50 pts)</li>
+      <li>Complete 3 levels (+20 pts)</li>
+      <li>Submit 1 level (+30 pts)</li>
+      <li>Beat a demon (+50 pts)</li>
 
-  </ul>
+    </ul>
 
-  <button>View Progress</button>
+  </div>
+
+  <!-- 🏆 WEEKLY WINNERS -->
+  <div class="home-card winners">
+
+    <h2>Weekly Winners</h2>
+
+    <ul class="winner-list">
+
+      <li>Nova — 120 pts</li>
+      <li>Skye — 95 pts</li>
+      <li>Hexa — 80 pts</li>
+
+    </ul>
+
+  </div>
 
 </div>
-
-</main>
-
-  <audio id="music" loop>
-    <source src="assets/audio/song.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="app.js"></script>
-
-</body>
-</html>
