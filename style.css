@@ -445,3 +445,18 @@ button:hover {
   --sunset: #ff8a4c;
   --sunset-soft: rgba(255, 138, 76, 0.25);
 }
+.nav a:hover {
+
+  background:
+    var(--sunset-soft);
+
+  color: var(--sunset);
+}
+.home-card:hover {
+
+  border:
+    1px solid var(--sunset-soft);
+
+  box-shadow:
+    0 0 22px var(--sunset-soft);
+}
