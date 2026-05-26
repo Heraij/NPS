@@ -1,3 +1,26 @@
+const hoverSound =
+  document.getElementById("hoverSound");
+
+const clickSound =
+  document.getElementById("clickSound");
+
+document.querySelectorAll(".nav a")
+.forEach(btn => {
+
+  btn.addEventListener("mouseenter", () => {
+
+    hoverSound.currentTime = 0;
+    hoverSound.volume = 0.2;
+    hoverSound.play();
+  });
+
+  btn.addEventListener("click", () => {
+
+    clickSound.currentTime = 0;
+    clickSound.volume = 0.3;
+    clickSound.play();
+  });
+});
 const music = document.getElementById("music");
 
 let musicStarted = false;
