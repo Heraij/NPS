@@ -84,22 +84,46 @@ function animate() {
   });
 
 }
+/* =========================
+   DEBUG
+========================= */
 
-animate();
+console.log("NPS SYSTEM LOADED ✔");
+
 document.querySelectorAll(".edit-btn").forEach(btn => {
 
   btn.addEventListener("click", (e) => {
 
     const card = e.target.closest(".home-card, .card, .panel");
 
-    card.classList.toggle("editing");
+    // allow editing only text elements inside card
+    const textElements = card.querySelectorAll("h2, p, li");
 
-    console.log("Editing panel:", card);
+    const isEditing = card.classList.contains("editing");
+
+    if (!isEditing) {
+
+      card.classList.add("editing");
+
+      textElements.forEach(el => {
+        el.contentEditable = true;
+        el.style.outline = "1px dashed rgba(255,140,80,0.4)";
+      });
+
+      btn.textContent = "💾 Save";
+
+    } else {
+
+      card.classList.remove("editing");
+
+      textElements.forEach(el => {
+        el.contentEditable = false;
+        el.style.outline = "none";
+      });
+
+      btn.textContent = "✏ Edit";
+    }
+
   });
 
 });
-/* =========================
-   DEBUG
-========================= */
-
-console.log("NPS SYSTEM LOADED ✔");
