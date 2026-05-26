@@ -613,3 +613,46 @@ button:hover {
 
   color: #7fb3ff;
 }
+/* =========================
+   WINNERS PANEL
+========================= */
+
+.home-card.winners {
+
+  border:
+    1px solid rgba(255,215,100,0.25);
+}
+
+/* ========================= */
+
+.home-card.winners h2 {
+
+  color: #ffd36a;
+}
+
+/* ========================= */
+
+.winner-list {
+
+  list-style: none;
+
+  padding: 0;
+
+  margin: 12px 0;
+
+  text-align: left;
+}
+
+/* ========================= */
+
+.winner-list li {
+
+  padding: 6px 0;
+
+  font-size: 14px;
+
+  opacity: 0.9;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.05);
+}
